@@ -3,7 +3,7 @@ Welcome to Youtube Loader [Transcript], a Python package for extracting transcri
 
 ## Features
 - Extract transcriptions from YouTube videos.
-- Support for multiple languages.
+- Support for multiple languages. (translate a youtube transcription [English and Italian supported])
 - Simple and easy-to-use interface.
 
 ## Set-up
