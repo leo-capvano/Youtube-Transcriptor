@@ -8,7 +8,7 @@ Welcome to Youtube Loader [Transcript], a Python package for extracting transcri
 
 ## Set-up
 > pip install -r requirements.txt  
-> streamlit run gui.py
+> streamlit run app.py
 
 ## Screenshots
 ![img.png](img.png)
