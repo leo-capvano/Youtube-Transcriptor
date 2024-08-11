@@ -1,16 +1,8 @@
 import streamlit as st
-from langchain_community.document_loaders import YoutubeLoader
 
-
-def transcript_video(yt_video_url: str, add_video_info: bool, languages: list, translation: str):
-    loader = YoutubeLoader.from_youtube_url(
-        yt_video_url,
-        add_video_info=add_video_info,
-        language=languages,
-        translation=translation
-    )
-    return loader.load()
-
+from src.llm_chain import get_llm_chain
+from src.stuff_chain_svc import generate_summary
+from src.youtube_svc import transcript_video
 
 st.title("Youtube Loader [Transcript]")
 st.text_area("Insert here a youtube url", key="yt_url_input")
@@ -22,5 +14,9 @@ if st.button("Transcript"):
     video_lang = st.session_state.video_lang
     with st.spinner("Getting transcription ..."):
         video_transcription = transcript_video(yt_url, True, [video_lang], translation_lang)
+        stuff_summary = generate_summary(get_llm_chain(), "text", video_transcription)
         with st.container(border=True):
+            st.write("# Summary")
+            st.write(stuff_summary)
+            st.write("# Transcription")
             st.json(video_transcription)
