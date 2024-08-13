@@ -8,8 +8,8 @@ Welcome to Youtube Loader [Transcript], a Python package for extracting transcri
 - Simple and easy-to-use interface.
 
 ## Set-up
-> pip install -r requirements.txt  
-> streamlit run app.py
+> pip install -r ./requirements.txt  
+> streamlit run ./app/app.py
 
 ### Set-up OpenAI
 In order to setup the OpenAI model connection:
